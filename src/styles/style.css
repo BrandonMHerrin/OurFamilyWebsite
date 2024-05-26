@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --primary: #48BEFF;
+  --secondary: #3DFAFF;
+  --accent: #E0AFA0;
+
+  --accent-text: #fff;
+  --primary-text: #463F3A;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16pt;
+  color: var(--primary-text);
+}
+
+header {
+  background-color: var(--primary);
+  color: var(--accent-text);
+  padding: 1rem;
+  border-bottom: 8px solid var(--secondary);
+}
+header h1 {
+  margin: 0;
+}
+header .material-symbols-outlined {
+  font-size: 2.5rem;
+}
+
+main {
+  padding: 1rem;
+}
+
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+button {
+  background-color: var(--primary);
+  color: var(--accent-text);
+  border: none;
+  padding: .5rem;
+  /* border-top: 3px solid var(--accent); */
+  border-bottom: 3px solid var(--secondary);
+}
+
+.action-box {
+  width: 100%;
+  max-width: 250px;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.single-column {
+  grid-template-columns: 1fr;
+}
+
+.half-gap {
+  gap: .5rem;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.vertical-center {
+  align-items: center;
+}
