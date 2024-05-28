@@ -19,24 +19,24 @@ const firebaseConfig = {
 export default class FirebaseApp {
     constructor() {
         this.app = initializeApp(firebaseConfig);
-        this.auth = getAuth(this.app);
+        // this.auth = getAuth(this.app);
     }
 
-    googleLogin() {
-        signInWithPopup(this.auth, googleProvider)
-            .then((result) => {
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
+    // googleLogin() {
+    //     signInWithPopup(this.auth, googleProvider)
+    //         .then((result) => {
+    //             const credential = GoogleAuthProvider.credentialFromResult(result);
+    //             const token = credential.accessToken;
 
-                const user = result.user;
-                console.log(user);
-            }).catch((error) => {
-                const errorCode = error.code;
-                const errorMesssage = error.message;
+    //             const user = result.user;
+    //             console.log(user);
+    //         }).catch((error) => {
+    //             const errorCode = error.code;
+    //             const errorMesssage = error.message;
 
-                const email = error.customData.email;
+    //             const email = error.customData.email;
 
-                console.error(error);
-            })
-    }
+    //             console.error(error);
+    //         })
+    // }
 }
