@@ -14,6 +14,7 @@ const main = () => {
     appUser = getItemFromStorage("app-user");
     loadHeaderFooter(auth.auth);
     onAuthStateChanged(auth.auth, (user) => {
+        console.log(user);
         if (user, appUser) redirectToDashboard();
         else hideLoadingIndicator();
     });

@@ -12,3 +12,9 @@ export const saveItemToStorage = (key, item) =>
   localStorage.setItem(key, JSON.stringify(item));
 
 export const removeStorageItem = (key) => localStorage.removeItem(key);
+
+export const getCurrentPage = () => {
+  const path = window.location.pathname;
+  const page = path.split("/").pop();
+  return page;
+}

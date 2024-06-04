@@ -1,11 +1,13 @@
 import FirebaseApp from "../modules/FirebaseApp.mjs";
 import { FirebaseAuth } from "../modules/FirebaseAuth.mjs";
+import { HouseholdMember } from "../modules/HouseholdMember.mjs";
 import { loadHeaderFooter } from "../modules/utils.mjs";
 
-const main = () => {
-    const app = new FirebaseApp().app;
-    const auth = new FirebaseAuth(app).auth;
+const main = async () => {
+    const auth = new FirebaseAuth().auth;
     loadHeaderFooter(auth);
+    const householdMemberRecord = new HouseholdMember();
+    await householdMemberRecord.init();
     hideLoadingIndicator();
 }
 

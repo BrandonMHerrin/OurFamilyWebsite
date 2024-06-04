@@ -1,15 +1,15 @@
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { removeStorageItem, saveItemToStorage } from "./utils.mjs";
+import FirebaseApp from "./FirebaseApp.mjs";
 
 const googleProvider = new GoogleAuthProvider();
 
 export class FirebaseAuth {
     app;
     auth;
-    constructor(app) {
-        this.app = app;
+    constructor() {
+        this.app = new FirebaseApp().app;
         this.auth = getAuth(this.app);
-        // this.auth.
     }
 
     googleLogin() {
@@ -19,9 +19,11 @@ export class FirebaseAuth {
                 const token = credential.accessToken;
                 const user = result.user;
                 const appUser = {
-                    email: '',
-                    fName: '',
-                    lName: ''
+                    displayName: user.displayName,
+                    email: user.email,
+                    accessToken: token,
+                    idToken: credential.idToken,
+                    uid: user.uid
                 }
                 saveItemToStorage("app-user", appUser);
             }).catch((error) => {
