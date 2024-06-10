@@ -10,6 +10,7 @@
       content="Page for setting up user household record."
     />
     <link rel="stylesheet" href="../../styles/style.css" />
+    <link rel="stylesheet" href="../../styles/large-styles.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
@@ -24,11 +25,10 @@
       <section>
         <h2>Household Setup</h2>
         <p>
-          You will need to either create a new household or join an existing
-          one.
+          You will need to either create a new household to continue.
         </p>
         <button id="new-household-btn">Create New Household</button>
-        <button id="join-household-btn">Join Existing Household</button>
+        <!-- <button id="join-household-btn">Join Existing Household</button> -->
         <form id="new-household-form" class="hide">
           <label
             >Household Name<span class="required">*</span>
@@ -51,26 +51,29 @@
 
           <label
             >My Role<span class="required">*</span><select id="my-role" name="my-role" required>
+              <option value="" disabled selected>Select Role</option>
               <option value="parent">Parent</option>
               <option value="child">Child</option>
             </select></label
           >
-
-          <button type="submit" id="new-household-submit-btn">Create New Household</button>
+          <div>
+            <button type="submit" id="new-household-submit-btn">Create New Household</button>
+          </div>
         </form>
         <form id="join-household-form" class="hide">
-          <label for="household-id">Household ID</label>
-          <input type="text" id="household-id" name="household-id" required />
-          <label for="join-fname">My First Name</label>
-          <input type="text" id="join-fname" name="join-fname" required />
-          <label for="join-lname">My Last Name</label>
-          <input type="text" id="join-lname" name="join-lname" required />
-          <label for="join-role">My Role</label>
+          <label>Household ID<span class="required">*</span><input type="text" id="household-id" name="household-id" required /></label>
+          <label>Member Id<input type="text" name="household-member"></label>
+          <label>My First Name<span class="required">*</span><input type="text" id="join-fname" name="join-fname" required /></label>
+          <label>My Last Name<span class="required">*</span><input type="text" id="join-lname" name="join-lname" required /></label>
+          <label>My Role<span class="required">*</span>
           <select id="join-role" name="join-role" required>
+            <option value="" disabled selected>Select Role</option>
             <option value="parent">Parent</option>
             <option value="child">Child</option>
-          </select>
-          <button type="submit">Join Household</button>
+          </select></label>
+          <div>
+            <button type="submit">Join Household</button>
+          </div>
         </form>
         <form id="add-member-form" class="hide">
           <label for="member-fname">Member First Name</label>

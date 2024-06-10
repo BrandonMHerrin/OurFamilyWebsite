@@ -1,15 +1,15 @@
 import { getItemFromStorage } from "../modules/utils.mjs";
 
 let baseUrl = import.meta.env.VITE_BACKEND_URL;
-baseUrl += "household-member";
+baseUrl += "/household-member";
 
 export const getHouseHoldMemberByUser = async () => {
     const user = getItemFromStorage("app-user");
     const res = await fetch(`${baseUrl}?user=${user.uid}`, {
         method: "GET",
-        headers: {
-            Authorization: `Bearer ${user.idToken}`
-        }
+        // headers: {
+        //     Authorization: `Bearer ${user.idToken}`
+        // }
     });
 
     if (res.ok) {
@@ -31,7 +31,7 @@ export const createHouseHoldMember = async (householdMember) => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${user.idToken}`
+            // Authorization: `Bearer ${user.idToken}`
         },
         body: body
     });
@@ -53,7 +53,7 @@ export const updateHouseHoldMember = async (memberId, householdMember) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${user.idToken}`,
+        // Authorization: `Bearer ${user.idToken}`,
       },
       body: body,
     });
@@ -63,4 +63,20 @@ export const updateHouseHoldMember = async (memberId, householdMember) => {
         return data;
     }
     throw new Error("Failed to update household member");
+}
+
+export const getHouseholdMembersByHousehold = async (householdId) => {
+    const url = `${baseUrl}/household/${householdId}`;
+    const res = await fetch(url, {
+        method: "GET",
+        // headers: {
+        //     Authorization: `Bearer ${user.idToken}`
+        // }
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        return data;
+    }
+    throw new Error("Failed to get household members");
 }

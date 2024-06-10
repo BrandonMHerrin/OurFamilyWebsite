@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Family | Update Household</title>
+    <meta name="author" content="Brandon Melvin Herrin" />
+    <meta
+      name="descriptoin"
+      content="Page for updating household records."
+    />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <link rel="stylesheet" href="../../styles/large-styles.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="../../js/scripts/household-update.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <div class="loading-wrapper">
+        <div class="spinner"></div>
+      </div>
+      <section class="grid gap">
+        <h2>Update Household</h2>
+        <div class="household-members"></div>
+        <div>
+          <button id="add-member-button">Add Member</button>
+        </div>
+        <form id="add-member-form" class="hide">
+          <label>Member First Name<span class="required">*</span><input type="text" id="member-fname" name="member-fname" required /></label>
+          <label>Member Last Name<span class="required">*</span><input type="text" id="member-lname" name="member-lname" required /></label>          
+          <label>Member Role<span class="required">*</span>
+            <select id="member-role" name="member-role" required>
+              <option value="" disabled selected>Select a Role</option>
+              <option value="parent">Parent</option>
+              <option value="child">Child</option>
+            </select>
+          </label>
+          <div>
+            <button id="insert-member-button" type="submit">Add Member</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

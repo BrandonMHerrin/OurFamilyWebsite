@@ -17,6 +17,7 @@ const authenticatedMenuItems = [
     menuText: "Calendar",
     destination: "/pages/calendar.html",
   },
+  { icon: "house", menuText: "Household", destination: "/pages/household/household-update.html" },
   { icon: "logout", menuText: "Logout", destination: "/pages/logout.html" },
 ];
 

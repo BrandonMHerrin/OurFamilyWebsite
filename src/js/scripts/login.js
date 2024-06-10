@@ -1,22 +1,16 @@
 
 import { onAuthStateChanged } from 'firebase/auth';
-import FirebaseApp from '../modules/FirebaseApp.mjs';
 import { FirebaseAuth } from '../modules/FirebaseAuth.mjs';
 import { getItemFromStorage, loadHeaderFooter } from '../modules/utils.mjs';
-import { loadFooter } from '../partials/footer.mjs';
-let app;
 let auth;
 let appUser;
 
 const main = () => {
-    app = new FirebaseApp().app;
-    auth = new FirebaseAuth(app);
+    auth = new FirebaseAuth();
     appUser = getItemFromStorage("app-user");
     loadHeaderFooter(auth.auth);
     onAuthStateChanged(auth.auth, (user) => {
-        console.log(user);
-        if (user, appUser) redirectToDashboard();
-        else hideLoadingIndicator();
+        hideLoadingIndicator();
     });
     registerClickHandlers();
 }
@@ -24,10 +18,6 @@ const main = () => {
 const hideLoadingIndicator = () => {
     const loadingWrapper = document.querySelector(".loading-wrapper");
     loadingWrapper.classList.toggle("hide");
-}
-
-const redirectToDashboard = () => {
-    window.location.assign("/pages/dashboard.html");
 }
 
 const registerClickHandlers = () => {

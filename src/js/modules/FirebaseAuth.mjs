@@ -26,6 +26,7 @@ export class FirebaseAuth {
                     uid: user.uid
                 }
                 saveItemToStorage("app-user", appUser);
+                window.location.assign("/pages/calendar.html");
             }).catch((error) => {
                 console.error(error);
             })

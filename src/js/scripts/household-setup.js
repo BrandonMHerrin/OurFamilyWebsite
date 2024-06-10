@@ -9,7 +9,7 @@ const newHouseholdButton = document.querySelector("#new-household-btn");
 const joinHouseholdButton = document.querySelector("#join-household-btn");
 
 const newHouseholdForm = document.querySelector("#new-household-form");
-const joinHouseholdForm = document.querySelector("#join-household-form");
+// const joinHouseholdForm = document.querySelector("#join-household-form");
 
 const householdMemberRecord = new HouseholdMember();
 
@@ -17,8 +17,9 @@ const main = async() => {
     const auth = new FirebaseAuth().auth;
     loadHeaderFooter(auth);
     await householdMemberRecord.init();
-    hideLoadingIndicator();
+    handleHouseholdLogic();
     registerEventHandlers();
+    hideLoadingIndicator();
 }
 
 const hideLoadingIndicator = () => {
@@ -28,23 +29,25 @@ const hideLoadingIndicator = () => {
 
 const registerEventHandlers = () => {
     newHouseholdButtonHandler();
-    joinHouseholdButtonHandler();
+    // joinHouseholdButtonHandler();
     newHouseholdSubmitFormHandler();
 }
 
 const newHouseholdButtonHandler = () => {
     newHouseholdButton.addEventListener("click", () => {
         newHouseholdForm.classList.remove("hide");
+        newHouseholdForm.classList.add("fade-down");
         hideFormChooserBtns();
     });
 }
 
-const joinHouseholdButtonHandler = () => {
-    joinHouseholdButton.addEventListener("click", () => {
-        joinHouseholdForm.classList.remove("hide");
-        hideFormChooserBtns();
-    });
-}
+// const joinHouseholdButtonHandler = () => {
+//     joinHouseholdButton.addEventListener("click", () => {
+//         joinHouseholdForm.classList.remove("hide");
+//         joinHouseholdForm.classList.add("fade-down");
+//         hideFormChooserBtns();
+//     });
+// }
 
 const newHouseholdSubmitFormHandler = () => {
     newHouseholdForm.addEventListener("submit", async (e) => {
@@ -79,7 +82,13 @@ const newHouseholdSubmitFormHandler = () => {
 
 const hideFormChooserBtns = () => {
     newHouseholdButton.classList.add("hide");
-    joinHouseholdButton.classList.add("hide");
+    // joinHouseholdButton.classList.add("hide");
+}
+
+const handleHouseholdLogic = () => {
+    if (householdMemberRecord.hasHousehold()) {
+        window.location.href = "/pages/household/household-update.html";
+    }
 }
 
 main();

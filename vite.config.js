@@ -10,12 +10,10 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "src/index.html"),
         login: resolve(__dirname, "src/pages/login.html"),
-        dashboard: resolve(__dirname, "src/pages/dashboard.html"),
-        logout: resolve(__dirname, "src/pages/logout.html")
-        // cart: resolve(__dirname, "src/cart/index.html"),
-        // product: resolve(__dirname, "src/product_pages/index.html"),
-        // listing: resolve(__dirname, "src/product-listing/index.html"),
-        // checkout: resolve(__dirname, "src/checkout/index.html"),
+        logout: resolve(__dirname, "src/pages/logout.html"),
+        household_update: resolve(__dirname, "src/pages/household/household-update.html"),
+        household_setup: resolve(__dirname, "src/pages/household/household-setup.html"),
+        calendar: resolve(__dirname, "src/pages/calendar.html"),
       },
     },
   },

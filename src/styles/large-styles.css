@@ -1,0 +1,45 @@
+@media screen and (min-width: 650px){
+
+    header {
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        background-color: var(--primary);
+        border-bottom: 8px solid var(--secondary);
+    }
+    header .grid {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: .5rem;
+    }
+
+    .navbar {
+        border-bottom: 0;
+    }
+
+    header .menu-button {
+        display: none;
+    }
+
+    .menu {
+        padding: 0;
+        margin: 0;
+        background-color: var(--primary);
+        margin-right: 1rem;
+    }
+
+    .menu li {
+        padding: 0;
+    }
+
+    header ul li {
+        margin: 0;
+    }
+
+    header ul li a {
+        padding: .5rem;
+        border: 3px solid var(--accent-text);
+        border-radius: 8px;
+    }
+}

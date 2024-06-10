@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Family | Calendar</title>
+    <meta name="author" content="Brandon Melvin Herrin" />
+    <meta name="descriptoin" content="Page for updating household records." />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/large-styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="../js/scripts/calendar.js" type="module"></script>
+  </head>
+  <body>
+    <div class="modal-wrapper hide">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Event Details</h2>
+          <button class="close-modal-button icon-button">X</button>
+        </div>
+        <div class="modal-body">
+          <form id="add-event-form">
+            <label
+              >Event Title<span class="required">*</span
+              ><input type="text" name="event-title" id="event-title" required
+            /></label>
+
+            <label
+              >Event Date<span class="required">*</span
+              ><input type="date" name="event-date" id="event-date" required
+            /></label>
+            <label>Event Time<span class="required">*</span><input type="time" name="event-time" id="event-time" required /></label>
+            <label>Event Duration<span class="required">*</span><input type="text" name="event-duration" id="event-duration" required placeholder="Minutes" /></label>
+            <label>Event Location<input type="text" name="event-location" id="event-location" /></label>
+            <label>Event Description<textarea name="event-description" id="event-description" rows="5"></textarea></label>
+            
+            <button type="submit" class="modal-button">Add Event</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <main>
+      <div class="loading-wrapper">
+        <div class="spinner"></div>
+      </div>
+      <section class="grid gap">
+        <h2>Household Calendar</h2>
+        <div id="events-table"></div>
+        <div>
+          <button id="add-event-button">Add Event</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

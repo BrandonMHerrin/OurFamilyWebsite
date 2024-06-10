@@ -21,6 +21,8 @@ export class HouseholdMember {
     const record = await getHouseHoldMemberByUser();
     if (record) {
       this.setCurrent(record);
+    } else {
+      await this.create();
     }
   }
 
@@ -33,15 +35,18 @@ export class HouseholdMember {
 
   setCurrent(record) {
     this.householdMemberId = record.id;
-    this.firstName = record.firstName;
-    this.lastName = record.lastName;
+    this.firstName = record.fname;
+    this.lastName = record.lname;
     this.UserId = record.userId;
     this.isAdmin = record.isAdmin;
-    this.houseHoldId = record.houseHoldId;
+    this.householdId = record.householdId;
+  }
+
+  hasHousehold() {
+    return this.householdId ? true : false;
   }
 
   create() {
-    // create a new household member
     const appUser = getItemFromStorage("app-user");
 
     const householdMember = {

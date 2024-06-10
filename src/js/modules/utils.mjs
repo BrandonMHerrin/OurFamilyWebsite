@@ -18,3 +18,12 @@ export const getCurrentPage = () => {
   const page = path.split("/").pop();
   return page;
 }
+
+export const hideLoadingIndicator = () => {
+  const loadingWrapper = document.querySelector(".loading-wrapper");
+  loadingWrapper.classList.toggle("hide");
+}
+
+export const capitalizeWords = (str) => {
+  return str.replace(/\b\w/g, (char) => char.toUpperCase());
+}
